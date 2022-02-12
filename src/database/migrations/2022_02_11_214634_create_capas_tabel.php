@@ -14,7 +14,7 @@ class CreateCapasTabel extends Migration
     public function up()
     {
         Schema::create('capas', function (Blueprint $table) {
-            $table->id();
+            $table->increments("user_id");
             $table->integer("max_capa");
             $table->integer("now_capa");
             $table->timestamps();
