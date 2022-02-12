@@ -10,15 +10,15 @@ class MainController extends Controller
 {
   public function shop()
   {
-    $tasks = Task::with('user')->orderBy('dead_line', 'asc')->get();
-    $capas = Capa::with('user')->first();
-    return view('shop', compact('tasks', 'capas'));
+    $tasks = Task::with('user')->where('user_id', 0)->orderBy('dead_line', 'asc')->get();
+    $capa = Capa::with('user')->where('user_id', 1)->first();
+    return view('shop', compact('tasks', 'capa'));
   }
   
   public function mypage()
   {
-    $capas = Capa::with('user')->first();
-    $tasks = Task::all();
-    return view('mypage', compact('tasks', 'capas'));
+    $tasks = Task::with('user')->where('user_id', 1)->where('status', '!=', 2)->orderBy('dead_line', 'asc')->get();
+    $capa = Capa::with('user')->where('user_id', 1)->first();
+    return view('mypage', compact('tasks', 'capa'));
   }
 }
