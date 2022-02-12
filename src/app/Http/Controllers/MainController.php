@@ -24,4 +24,12 @@ class MainController extends Controller
     $todo_count = Task::where('user_id', 1)->get()->count();
     return view('mypage', compact('tasks', 'capa', 'todo_count'));
   }
+
+  public function cart()
+  {
+    $tasks = Task::with('user')->where('user_id', 1)->where('status', '!=', 2)->orderBy('dead_line', 'asc')->get();
+    $capa = Capa::with('user')->where('user_id', 1)->first();
+    $todo_count = Task::where('user_id', 1)->get()->count();
+    return view('cart', compact('tasks', 'capa', 'todo_count'));
+  }
 }
