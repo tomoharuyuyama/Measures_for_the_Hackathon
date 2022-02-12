@@ -1,6 +1,9 @@
 @extends('layouts.header')
 
 @section('title', 'cart')
+@section('header_btn', 'ショップ')
+@section('root', 'http://localhost/shop')
+@section('cart', 'http://localhost/cart')
 
 @section('content')
 <section class="mt-10 px-10">

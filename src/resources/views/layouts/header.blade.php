@@ -14,12 +14,12 @@
         <img src="{{asset('img/posse_logo.png')}}" alt="POSSE" class="w-32 object-contain">
       </h1>
       <div class="flex gap-2">
-        <button class="w-20 h-7 my-auto text-xs rounded-2xl bg-gradient-to-r from-blue-700 to-blue-500 text-white">マイページ</button>
+        <button onclick="location.href='@yield('root')'" class="w-20 h-7 my-auto text-xs rounded-2xl bg-gradient-to-r from-blue-700 to-blue-500 text-white">@yield('header_btn')</button>
         <button class="w-20 h-7 my-auto text-xs rounded-2xl bg-gradient-to-r from-blue-700 to-blue-500 text-white">ログアウト</button>
-        <div class="flex relative">
+        <a href="@yield('cart')" class="flex relative">
           <img src="{{asset('img/cart.svg')}}" alt="cart" class="w-7">
           <div class="bg-red-500 w-4 h-4 rounded-full text-xs text-center leading-4 text-white absolute top-3 left-5">2</div>
-        </div>
+        </a>
       </div>
     </section>
     <section class="w-full bg-white">
