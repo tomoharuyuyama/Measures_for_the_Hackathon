@@ -38,6 +38,9 @@
     </section>
   </header>
   @yield('content')
+  <footer class="h-10 bg-blue-600 w-full text-center absolute bottom-0">
+    <address class="text-white text-xs leading-10 text-md not-italic">Knucklebuster Band Corp.</address>
+  </footer>
   <script src="{{ asset('/js/main.js') }}"></script>
 </body>
 </html>
