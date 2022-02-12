@@ -6,6 +6,12 @@
 <section class="mt-10 px-10">
   @foreach ($tasks as $task)
     @if ($task->user_id == 0)
+    <form action="{{route('shop.buy', $task->id)}}" method="POST">
+      @csrf
+      @method('PUT')
+      <input type="hidden" name="task_id" value="{{$task->id}}">
+      <!-- user_id はログインによって動的に代入されるようにする -->
+      <input type="hidden" name="user_id" value=1>
       <div class="flex mb-5 bg-white h-20 justify-around rounded-lg shadow-sm hover:shadow-md transition-shadow px-2">
         <div class="my-auto">
           <h2 class="font-bold text-base">{{ $task->title }}</h2>
@@ -14,6 +20,7 @@
         </div>
         <button class="w-20 h-7 my-auto text-xs rounded-2xl bg-gradient-to-r from-blue-700 to-blue-500 text-white">購入</button>
       </div>
+    </form>
     @endif
   @endforeach
 </section>
