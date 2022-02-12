@@ -15,7 +15,6 @@ class ConsumeController extends Controller
       'user_id' => $request->user_id,
     ];
     Task::where('id', $id)->update($update);
-    // dd($now_capa->now_capa - ($request->cost_capa));
     $capa_update = [
       'now_capa' => ($now_capa->now_capa - ($request->cost_capa)),
     ];
@@ -25,10 +24,17 @@ class ConsumeController extends Controller
 
   public function done(Request $request, $id)
   {
+    $now_capa = Capa::where('user_id', $request->user_id)->first();
     $update = [
       'status' => $request->status
     ];
     Task::where('id', $id)->update($update);
+    if ($request->status == 2) {
+      $capa_update = [
+        'now_capa' => ($now_capa->now_capa + floor(($request->cost_capa)*2/3)),
+      ];
+      Capa::where('user_id', $request->user_id)->update($capa_update);
+    }
     return redirect()->route('mypage.index');
   }
 }

@@ -23,7 +23,7 @@ class TasksTableSeeder extends Seeder
         DB::table('tasks')->insert([
             'title' => '釣り',
             'dead_line' => '20021122',
-            'cost_capa' => 40,
+            'cost_capa' => 100,
             'user_id' => 0,
             'status' => 0,
         ]);
