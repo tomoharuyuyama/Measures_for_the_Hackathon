@@ -12,7 +12,6 @@ class MainController extends Controller
   {
     $tasks = Task::with('user')->orderBy('dead_line', 'asc')->get();
     $capas = Capa::with('user')->first();
-    // dd($tasks->title);
     return view('shop', compact('tasks', 'capas'));
   }
   
@@ -20,7 +19,6 @@ class MainController extends Controller
   {
     $capas = Capa::with('user')->first();
     $tasks = Task::all();
-    // dd($capas->user->name);
     return view('mypage', compact('tasks', 'capas'));
   }
 }
