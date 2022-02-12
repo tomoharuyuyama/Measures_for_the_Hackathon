@@ -17,3 +17,4 @@ Route::get('/', 'App\Http\Controllers\MainController@mypage')->name('mypage.inde
 Route::put('/{done}', 'App\Http\Controllers\ConsumeController@done')->name('mypage.done');
 Route::get('/shop', 'App\Http\Controllers\MainController@shop')->name('shop.index');
 Route::put('/shop/{buy}', 'App\Http\Controllers\ConsumeController@buy')->name('shop.buy');
+Route::get('/cart', 'App\Http\Controllers\MainController@cart')->name('cart.index');
