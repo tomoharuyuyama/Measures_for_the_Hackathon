@@ -4,19 +4,17 @@
 
 @section('content')
 <section class="mt-10 px-10">
-  <div class="flex mb-5 bg-white h-20 justify-around rounded-lg shadow-sm hover:shadow-md transition-shadow px-2">
-    <div class="my-auto">
-      <h2 class="font-bold text-base">タスク名を決めるタスク</h2>
-      <p class="text-sm"><span>30</span>capa(<span>20</span>capa)</p>
-    </div>
-    <button class="w-20 h-7 my-auto text-xs rounded-2xl bg-gradient-to-r from-blue-700 to-blue-500 text-white">購入</button>
-  </div>
-  <div class="flex mb-5 bg-white h-20 justify-around rounded-lg shadow-sm hover:shadow-md transition-shadow px-2">
-    <div class="my-auto">
-      <h2 class="font-bold text-base">タスク名を決めるタスク</h2>
-      <p class="text-sm"><span>30</span>capa(<span>20</span>capa)</p>
-    </div>
-    <button class="w-20 h-7 my-auto text-xs rounded-2xl bg-gradient-to-r from-blue-700 to-blue-500 text-white">購入</button>
-  </div>
+  @foreach ($tasks as $task)
+    @if ($task->user_id == 0)
+      <div class="flex mb-5 bg-white h-20 justify-around rounded-lg shadow-sm hover:shadow-md transition-shadow px-2">
+        <div class="my-auto">
+          <h2 class="font-bold text-base">{{ $task->title }}</h2>
+          <p class="text-sm"><span>{{ $task->cost_capa }}</span>capa(<span>{{ floor(($task->cost_capa)/3) }}</span>capa)</p>
+          <p class="text-sm">期日 : {{ $task->dead_line }}</p>
+        </div>
+        <button class="w-20 h-7 my-auto text-xs rounded-2xl bg-gradient-to-r from-blue-700 to-blue-500 text-white">購入</button>
+      </div>
+    @endif
+  @endforeach
 </section>
 @endsection
