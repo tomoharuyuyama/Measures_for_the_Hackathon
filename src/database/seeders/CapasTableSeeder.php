@@ -15,7 +15,7 @@ class CapasTableSeeder extends Seeder
     {
         DB::table('capas')->insert([
             'max_capa' => 100,
-            'now_capa' => 60,
+            'now_capa' => 90,
         ]);
         DB::table('capas')->insert([
             'max_capa' => 200,
