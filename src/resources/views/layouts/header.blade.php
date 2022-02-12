@@ -26,9 +26,9 @@
       <label for="user_status" class="h-16 hidden peer-checked:block">
         <div class="text-gray-200 text-center pb-2">▲</div>
         <div class="flex justify-around">
-          <p>name:<span>{{ $capas->user->name }}</span></p>
+          <p>name:<span>{{ $capa->user->name }}</span></p>
           <p>todo:<span>{{ $todo_count }}</span></p>
-          <p>capa<span>{{ $capas->now_capa }}</span>/<span>{{ $capas->max_capa }}</span></p>
+          <p>capa<span>{{ $capa->now_capa }}</span>/<span>{{ $capa->max_capa }}</span></p>
         </div>
       </label>
     </section>
