@@ -5,7 +5,6 @@
 @section('content')
 <section class="mt-10 px-10">
   @foreach ($tasks as $task)
-    @if ($task->user_id == 0)
     <form action="{{route('shop.buy', $task->id)}}" method="POST">
       @csrf
       @method('PUT')
@@ -21,7 +20,6 @@
         <button class="w-20 h-7 my-auto text-xs rounded-2xl bg-gradient-to-r from-blue-700 to-blue-500 text-white">購入</button>
       </div>
     </form>
-    @endif
   @endforeach
 </section>
 @endsection
