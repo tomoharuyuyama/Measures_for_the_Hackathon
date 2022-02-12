@@ -26,13 +26,14 @@
       <label for="user_status" class="h-16 hidden peer-checked:block">
         <div class="text-gray-200 text-center pb-2">▲</div>
         <div class="flex justify-around">
-          <p>name:<span>姑</span></p>
-          <p>todo:<span>2</span></p>
-          <p>capa<span>60</span>/<span>100</span></p>
+          <p>name:<span>{{ $capas->user->name }}</span></p>
+          <p>todo:<span>{{ $todo_count }}</span></p>
+          <p>capa<span>{{ $capas->now_capa }}</span>/<span>{{ $capas->max_capa }}</span></p>
         </div>
       </label>
     </section>
   </header>
   @yield('content')
+  <script src="{{ asset('/js/main.js') }}"></script>
 </body>
 </html>
