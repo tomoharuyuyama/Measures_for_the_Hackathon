@@ -22,4 +22,13 @@ class ConsumeController extends Controller
     Capa::where('user_id', $request->user_id)->update($capa_update);
     return redirect()->route('shop.index');
   }
+
+  public function done(Request $request, $id)
+  {
+    $update = [
+      'status' => $request->status
+    ];
+    Task::where('id', $id)->update($update);
+    return redirect()->route('mypage.index');
+  }
 }

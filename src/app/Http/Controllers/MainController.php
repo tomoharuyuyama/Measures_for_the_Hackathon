@@ -10,17 +10,17 @@ class MainController extends Controller
 {
   public function shop()
   {
-    $tasks = Task::with('user')->orderBy('dead_line', 'asc')->get();
-    $capas = Capa::with('user')->where('user_id', 1)->first();
+    $tasks = Task::with('user')->where('user_id', 0)->orderBy('dead_line', 'asc')->get();
+    $capa = Capa::with('user')->where('user_id', 1)->first();
     // TODO 後ほど、where句が動的に変更できるようにする
     $todo_count = Task::where('user_id', 0)->get()->count();
-    return view('shop', compact('tasks', 'capas', 'todo_count'));
+    return view('shop', compact('tasks', 'capa', 'todo_count'));
   }
   
   public function mypage()
   {
-    $capas = Capa::with('user')->first();
-    $tasks = Task::all();
-    return view('mypage', compact('tasks', 'capas'));
+    $tasks = Task::with('user')->where('user_id', 1)->where('status', '!=', 2)->orderBy('dead_line', 'asc')->get();
+    $capa = Capa::with('user')->where('user_id', 1)->first();
+    return view('mypage', compact('tasks', 'capa'));
   }
 }
