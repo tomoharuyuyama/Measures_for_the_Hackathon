@@ -5,7 +5,7 @@
 @section('content')
 <section class="mt-10 px-10">
   @foreach ($tasks as $task)
-    <form action="{{route('shop.buy', $task->id)}}" method="POST">
+    <form action="{{route('shop.buy', $task->id)}}" method="POST" name="deleteform">
       @csrf
       @method('PUT')
       <input type="hidden" name="task_id" value="{{$task->id}}">
@@ -18,7 +18,11 @@
           <p class="text-sm"><span>{{ $task->cost_capa }}</span>capa(<span>{{ floor(($task->cost_capa)/3) }}</span>capa)</p>
           <p class="text-sm">期日 : {{ $task->dead_line }}</p>
         </div>
-        <button class="w-20 h-7 my-auto text-xs rounded-2xl bg-gradient-to-r from-blue-700 to-blue-500 text-white" onClick="delete_alert(event);return false;">購入</button>
+        @if ($capa->now_capa >= $task->cost_capa)
+        <button class="w-20 h-7 my-auto text-xs rounded-2xl bg-gradient-to-r from-blue-700 to-blue-500 text-white" onclick="delete_alert(event);return false;">購入</button>
+        @else
+        <button class="w-20 h-7 my-auto text-xs rounded-2xl border-black border-2 text-center" onclick="alert('capaが足りません');return false;">購入不可</button>
+        @endif
       </div>
     </form>
   @endforeach

@@ -5,3 +5,11 @@ function delete_alert(e){
   }
   document.deleteform.submit();
 };
+
+function completed_alert(e){
+  if(!window.confirm('タスク完了しましたか？')){
+    window.alert('キャンセルされました'); 
+    return false;
+  }
+  document.completedform.submit();
+};
