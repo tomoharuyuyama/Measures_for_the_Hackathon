@@ -2,8 +2,6 @@
 
 @section('title', 'shop')
 @section('header_btn', 'マイページ')
-@section('root', 'http://localhost')
-@section('cart', 'http://localhost/cart')
 
 @section('content')
 <section class="mt-10 px-10">
