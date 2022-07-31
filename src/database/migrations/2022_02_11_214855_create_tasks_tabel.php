@@ -15,10 +15,10 @@ class CreateTasksTabel extends Migration
     {
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
-            $table->string("name");
+            $table->string("title");
             $table->date("dead_line");
             $table->integer("cost_capa");
-            $table->integer("asign")->comment('0->ショップに表示。 !0->ショップ非表示。');
+            $table->integer("user_id")->comment('0->ショップに表示。 !0->ショップ非表示。');
             $table->timestamps();
         });
     }
